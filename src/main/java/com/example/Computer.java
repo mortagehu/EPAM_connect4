@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Random;
 
 public class Computer extends Player {
-    private final Random random;
+
 
     // Konstruktor
     public Computer(String name, String symbol) {
         super(name, symbol);
-        this.random = new Random();
+        Random random = new Random();
     }
 
     // Absztrakt metódus implementációja

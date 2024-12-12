@@ -13,6 +13,12 @@ public class Game {
         player2 = new Computer("Computer", "O");
     }
 
+    public Game(Board mockBoard, Player mockPlayer1, Player mockPlayer2) {
+            this.board = mockBoard;
+            this.player1 = mockPlayer1;
+            this.player2 = mockPlayer2;
+    }
+
     public void start() {
         Player currentPlayer = player1; // Player 1 starts
         Scanner scanner = new Scanner(System.in);

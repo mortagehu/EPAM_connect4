@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Random;
+
 public abstract class Player {
     private final String name; // Játékos neve
     private final String symbol; // Játékos szimbóluma ('X' vagy 'O')
@@ -24,6 +26,10 @@ public abstract class Player {
 
     // Absztrakt metódus a lépéshez
     public abstract int makeMove(Board board);
+
+    public void setRandom(Random mockRandom) {
+
+    }
 }
 
 
