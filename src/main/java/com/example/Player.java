@@ -1,20 +1,29 @@
 package com.example;
 
 public abstract class Player {
-    private final String name;
-    private final String color;
+    private final String name; // Játékos neve
+    private final String symbol; // Játékos szimbóluma ('X' vagy 'O')
 
-    public Player(String name, String color){
+    // Konstruktor
+    public Player(String name, String symbol) {
         this.name = name;
-        this.color = color;
+        if (symbol.charAt(0) != 'X' && symbol.charAt(0) != 'O') {
+            throw new IllegalArgumentException("Érvénytelen szimbólum! Csak 'X' vagy 'O' lehet.");
+        }
+        this.symbol = symbol;
     }
-    public String getName()
-    {
+
+    // Getterek
+    public String getName() {
         return name;
     }
-    public String getColor(){
-        return color;
+
+    public String getSymbol() {
+        return symbol;
     }
 
-    public abstract String makeMove();
+    // Absztrakt metódus a lépéshez
+    public abstract int makeMove(Board board);
 }
+
+

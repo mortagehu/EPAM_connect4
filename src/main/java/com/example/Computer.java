@@ -6,14 +6,21 @@ import java.util.Random;
 public class Computer extends Player {
     private final Random random;
 
-    public Computer(String name, String color){
-        super(name, color);
+    // Konstruktor
+    public Computer(String name, String symbol) {
+        super(name, symbol);
         this.random = new Random();
     }
 
-    public String makeMove(List<String> validColumns) {
-        int index = random.nextInt(validColumns.size());
-        return validColumns.get(index);
+    // Absztrakt metódus implementációja
+    @Override
+    public int makeMove(Board board) {
+        List<Integer> validColumns = board.getValidColumns();
+        Random random = new Random(); // Initialize the Random object
+        int randomColumn = validColumns.get(random.nextInt(validColumns.size())); // Get a random valid column
+        return randomColumn; // Return the randomly selected column index
     }
+
+
 
 }
