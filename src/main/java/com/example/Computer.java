@@ -4,23 +4,22 @@ import java.util.List;
 import java.util.Random;
 
 public class Computer extends Player {
+    private Random random;
 
 
-    // Konstruktor
-    public Computer(String name, String symbol) {
+    public Computer(String name, String symbol, Random random) {
         super(name, symbol);
-        Random random = new Random();
+        this.random = random;
     }
 
-    // Absztrakt metódus implementációja
+    // Fallback constructor for production use
+    public Computer(String name, String symbol) {
+        this(name, symbol, new Random());
+    }
+
     @Override
     public int makeMove(Board board) {
         List<Integer> validColumns = board.getValidColumns();
-        Random random = new Random(); // Initialize the Random object
-        int randomColumn = validColumns.get(random.nextInt(validColumns.size())); // Get a random valid column
-        return randomColumn; // Return the randomly selected column index
+        return validColumns.get(random.nextInt(validColumns.size())); // Use the injected Random object
     }
-
-
-
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class Board {
     private final int rows; // Number of rows
     private final int columns; // Number of columns
-    private final String[][] grid; // The game grid: either "YELLOW", "RED" or null
+    private final String[][] grid;
 
     public Board(int rows, int columns) {
         this.rows = rows;
@@ -92,7 +92,7 @@ public class Board {
         return false;
     }
 
-    private boolean checkDiagonal(String color) {
+    public boolean checkDiagonal(String color) {
         // Left-to-right diagonal check
         for (int row = 0; row < rows - 3; row++) {
             for (int col = 0; col < columns - 3; col++) {
@@ -128,4 +128,6 @@ public class Board {
         }
         return true;
     }
+
+
 }

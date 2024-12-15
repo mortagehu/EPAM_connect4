@@ -7,16 +7,17 @@ public class Game {
     private final Player player1;
     private final Player player2;
 
+
+
     public Game() {
-        board = new Board(6, 7); // 6 rows, 7 columns
-        player1 = new HumanPlayer("Gigachad", "X");
-        player2 = new Computer("Computer", "O");
+        this(new Board(6, 7), new HumanPlayer("Player 1", "X"), new Computer("Computer", "O"));
     }
 
-    public Game(Board mockBoard, Player mockPlayer1, Player mockPlayer2) {
-            this.board = mockBoard;
-            this.player1 = mockPlayer1;
-            this.player2 = mockPlayer2;
+    public Game(Board board, Player player1, Player player2) {
+        this.board = board;
+        this.player1 = player1;
+        this.player2 = player2;
+
     }
 
     public void start() {
